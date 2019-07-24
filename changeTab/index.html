@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tab切换（Vue）</title>
+</head>
+<style>
+    ul{
+        list-style: none;
+        overflow: hidden;
+        width: 300px;
+    }
+    li{
+        float: left;
+        border: 1px solid black;
+        width: 100px;
+        height: 50px;
+        cursor: pointer;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box
+    }
+    div.show{
+        width: 300px;
+        height: 100px;
+        border: 1px solid black;
+    }
+    .active{
+        color: red;
+    }
+</style>
+<body>
+    <div id="tab">
+        <h1>tab切换</h1>
+        <ul>
+            <li v-for="(tab,idx) in tabs" :class="{active:activeIdx===idx}" @click='change(idx)'>{{idx+1}}</li>
+        </ul>
+        <div class="show">
+            <div v-for="(tab,idx) in tabs" v-show="activeIdx===idx">
+                {{tab.content}}
+            </div>
+        </div>
+    </div>
+
+    <script src="./tab.bundle.js"></script>
+</body>
+
+</html>
