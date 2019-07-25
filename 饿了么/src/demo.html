@@ -1,0 +1,7 @@
+<div>
+    搜索： <br>
+    <input type="text" v-model="sousuo" :placeholder="placeholder"><br>
+    <dizhi :xinxi="sousuo">
+        <span>(这是子组件中的插槽，并且子组件由props来接收来自父组件的搜索值)地址:</span> 
+    </dizhi>
+</div>

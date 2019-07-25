@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <p v-html="done"></p>
+    </div>
+</body>
+<script src="./vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            message:'',
+            html:'你好123456你好123456'
+        },
+        computed:{
+            done(){
+                var reg = new RegExp(this.message, 'ig'); //正则
+                let str = `<b>${this.message}</b>`; //替换 
+                return this.html.replace(reg, str);
+            }
+        }
+    })
+</script>
+
+</html>
