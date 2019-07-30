@@ -7,10 +7,13 @@
     </div>
 
     <div id="main">
-      <Panel></Panel>
+      <Panel v-if="currentIdx===0"></Panel>
+      <div v-if="currentIdx===1">我是通讯录</div>
+      <div v-else-if="currentIdx===2">我是发现</div>
+      <div v-else-if="currentIdx===3">我是我</div>
     </div>
 
-    <Footer></Footer>
+    <Footer @change="change"></Footer>
   </div>
 </template>
 
@@ -24,12 +27,22 @@ import Search from "./components/Search";
 
 export default {
   name: "app",
+  data() {
+    return {
+      currentIdx: 0
+    };
+  },
   components: {
     Header,
     Nav,
     Panel,
     Footer,
     Search
+  },
+  methods: {
+    change(msg) {
+      this.currentIdx = msg;
+    }
   }
 };
 </script>
@@ -60,6 +73,6 @@ body {
 }
 #header {
 }
-footer {
+Footer {
 }
 </style>
